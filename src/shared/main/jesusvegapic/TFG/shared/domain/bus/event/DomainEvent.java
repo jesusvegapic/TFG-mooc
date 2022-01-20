@@ -35,13 +35,13 @@ public abstract class DomainEvent {
             String aggregateId,
             HashMap<String, Serializable> body,
             String eventId,
-            String ocurredOn
+            String occurredOn
     );
 
     public String aggregateId() { return aggregateId;}
 
     public String eventId() { return eventId;}
 
-    public String ocurredOn() {return ocurredOn;}
+    public String occurredOn() {return ocurredOn;}
 
 }

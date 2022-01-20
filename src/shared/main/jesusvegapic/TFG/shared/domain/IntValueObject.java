@@ -1,23 +1,15 @@
 package jesusvegapic.TFG.shared.domain;
 
-import java.io.Serializable;
 import java.util.Objects;
-import java.util.UUID;
 
-public abstract class Identifier implements Serializable {
-    final protected String value;
+public abstract class IntValueObject {
+    private Integer value;
 
-    public Identifier(String value) {
-        ensureValidUuid(value);
-
+    public IntValueObject(Integer value) {
         this.value = value;
     }
 
-    protected Identifier() {
-        this.value = null;
-    }
-
-    public String value() {
+    public Integer value() {
         return value;
     }
 
@@ -29,16 +21,12 @@ public abstract class Identifier implements Serializable {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Identifier that = (Identifier) o;
+        IntValueObject that = (IntValueObject) o;
         return value.equals(that.value);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(value);
-    }
-
-    private void ensureValidUuid(String value) throws IllegalArgumentException {
-        UUID.fromString(value);
     }
 }

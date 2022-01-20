@@ -1,0 +1,8 @@
+build/
+
+
+/var/log/*
+!/var/log/.gitkeep
+
+.env.local
+.env.*.local

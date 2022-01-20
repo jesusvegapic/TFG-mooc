@@ -1,5 +1,6 @@
 package jesusvegapic.TFG.mooc.students.application;
 
+import jesusvegapic.TFG.mooc.students.domain.Student;
 import jesusvegapic.TFG.mooc.students.domain.StudentId;
 import jesusvegapic.TFG.mooc.students.domain.StudentRepository;
 import jesusvegapic.TFG.shared.domain.Service;
@@ -15,4 +16,10 @@ public final class StudentCreator {
         this.eventBus = eventBus;
     }
 
+    public void create(StudentId id, String name, String familyName, String email) {
+        Student student = Student.create(id, name, familyName, email);
+
+        repository.save(student);
+        eventBus.publish(student.pullDomainEvents());
+    }
 }
